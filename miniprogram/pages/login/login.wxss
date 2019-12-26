@@ -1,0 +1,28 @@
+/* pages/login/login.wxss */
+@import "../../style/style.wxss";
+
+login-page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.login-page-section {
+  display: flex;
+  background: #fff;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.change-password {
+  color: gray;
+  font-size: 28rpx;
+  padding: 10rpx 40rpx;
+  text-align: center;
+  margin-right: unset;
+}
+
+.change-password-hover {
+  color: black;
+}
