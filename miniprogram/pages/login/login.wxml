@@ -4,7 +4,7 @@
     label="用户名"
     placeholder="请输入用户名"
     error-message="{{userNotExist ? '用户名不存在' : ''}}"
-    bind:change="changeUsername"
+    bind:input="changeUsername"
   />
   <van-field
     value="{{ password }}"
@@ -14,7 +14,7 @@
     border="{{ false }}"
     error="{{false}}"
     password="{{true}}"
-    bind:change="changePassword"
+    bind:input="changePassword"
   />
 </van-cell-group>
 <view class="button-wrapper">
