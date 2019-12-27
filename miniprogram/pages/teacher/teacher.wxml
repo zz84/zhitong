@@ -1,0 +1,1 @@
+<van-button type="primary" bind:click="addStudent">添加学生</van-button>

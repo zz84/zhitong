@@ -1,17 +1,36 @@
-<view class="login-page">
-  <view class="login-page-section">
-    <view class="input-title"> 用户名 </view>
-    <view class="input-box">
-      <input placeholder="请输入用户名"> </input>
-    </view>
-  </view>
-  <view class="login-page-section">
-    <view class="input-title"> 密码 </view>
-    <view class="input-box">
-      <input password placeholder="请输入密码" placeholder-class="input-placeholder"> </input>
-    </view>
-  </view>
-  <view class="button-wrapper">
-    <button class="change-password" size="mini" type="defaut" hover-class="change-password-hover" bindtap="none"> 更改密码 </button>
-  </view>
+<van-cell-group>
+  <van-field
+    value="{{ username }}"
+    label="用户名"
+    placeholder="请输入用户名"
+    error-message="{{userNotExist ? '用户名不存在' : ''}}"
+    bind:change="changeUsername"
+  />
+  <van-field
+    value="{{ password }}"
+    label="密码"
+    placeholder="请输入密码"
+    error-message="{{passwordCorrect ? '' : '密码错误'}}"
+    border="{{ false }}"
+    error="{{false}}"
+    password="{{true}}"
+    bind:change="changePassword"
+  />
+</van-cell-group>
+<view class="button-wrapper">
+  <button 
+    class="text-button"
+    size="mini" 
+    type="defaut" 
+    hover-class="text-button-hover" 
+    bindtap="navigateToChangePassword"> 更改密码 
+  </button>
+
+  <button 
+    class="text-button"
+    size="mini" 
+    type="defaut" 
+    hover-class="text-button-hover" 
+    bindtap="tryLogIn"> 登录 
+  </button>
 </view>
