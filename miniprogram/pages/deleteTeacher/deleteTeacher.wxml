@@ -14,6 +14,7 @@
     删除老师
   </van-button>
 </view>
+<!-- TODO: consider change toast to vant-app toast -->
 <toast 
   hidden="{{toastHidden}}"
   duration="1500"

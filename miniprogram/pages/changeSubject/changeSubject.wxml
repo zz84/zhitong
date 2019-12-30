@@ -1,2 +1,28 @@
-<!--pages/changeSubject/changeSubject.wxml-->
-<text>pages/changeSubject/changeSubject.wxml</text>
+<view class="list">
+  <view class="button-wrapper">
+    <view class="list-item">
+      <van-button color="#2E8B57" size="large" bind:click="navigateToAddSubject">添加科目</van-button>
+    </view>
+    <view class="list-item">
+      <van-button color="#C3272B" size="large" bind:click="navigateToDeleteSubject">删除科目</van-button>
+    </view>
+  </view>
+  
+  <view class="button-wrapper">
+    <view class="list-item">
+      <van-button color="#2E8B57" size="large" bind:click="navigateToAddUnit">添加单元</van-button>
+    </view>
+    <view class="list-item">
+      <van-button color="#C3272B" size="large" bind:click="navigateToDeleteUnit">删除单元</van-button>
+    </view>
+  </view>
+
+  <view class="button-wrapper">
+    <view class="list-item">
+      <van-button color="#2E8B57" size="large" bind:click="navigateToAddTopic">添加知识点</van-button>
+    </view>
+    <view class="list-item">
+      <van-button color="#C3272B" size="large" bind:click="navigateToDeleteTopic">删除知识点</van-button>
+    </view>
+  </view>
+</view>

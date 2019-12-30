@@ -38,3 +38,24 @@
   justify-content: center;
   padding: 40rpx 0rpx 250rpx 0rpx;
 }
+
+.list-compact {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.list-item-compact {
+  display: flex;
+  color: black;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 28rpx;
+  border-top: 1rpx solid rgba(0, 0, 0, 0.1);
+  padding: 10rpx 0rpx 0rpx 30rpx;
+}
+
+.list-item-compact:first-child {
+  border-top: none;
+  padding-top: 0rpx;
+}

@@ -1,66 +1,49 @@
 // pages/student/student.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    activeNames: ['1'],
+    activeNames1: ['1'],
+    activeNames2: [],
+    rate1: 5,
+    rate2: 4,
+    rate3: 0
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onChange(event) {
+    this.setData({
+      activeNames: event.detail
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onChange1(event) {
+    this.setData({
+      activeNames1: event.detail
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  onChange2(event) {
+    this.setData({
+      activeNames2: event.detail
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  onChangeRate1(event) {
+    this.setData({
+      rate1: event.detail
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  onChangeRate2(event) {
+    this.setData({
+      rate2: event.detail
+    });
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  onChangeRate3(event) {
+    this.setData({
+      rate3: event.detail
+    });
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

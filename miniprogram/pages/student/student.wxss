@@ -1,1 +1,1 @@
-/* pages/student/student.wxss */
+@import "../../style/style.wxss";

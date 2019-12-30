@@ -1,10 +1,10 @@
 {
   "pages": [
-    
+    "pages/student/student",
     "pages/login/login",
     "pages/changePassword/changePassword",
     "pages/teacher/teacher",
-    "pages/student/student",
+    
     "pages/chooseStudent/chooseStudent",
     "pages/rating/rating",
     "pages/changeStudent/changeStudent",
@@ -13,7 +13,13 @@
     "pages/addTeacher/addTeacher",
     "pages/deleteTeacher/deleteTeacher",
     "pages/changeTeacher/changeTeacher",
-    "pages/changeSubject/changeSubject"
+    "pages/changeSubject/changeSubject",
+    "pages/addSubject/addSubject",
+    "pages/deleteSubject/deleteSubject",
+    "pages/addUnit/addUnit",
+    "pages/deleteUnit/deleteUnit",
+    "pages/addTopic/addTopic",
+    "pages/deleteTopic/deleteTopic"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

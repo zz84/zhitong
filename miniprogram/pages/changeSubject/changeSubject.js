@@ -1,66 +1,42 @@
-// pages/changeSubject/changeSubject.js
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
 
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  navigateToAddSubject: function (event) {
+    wx.navigateTo({
+      url: '../addSubject/addSubject',
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  navigateToDeleteSubject: function (event) {
+    wx.navigateTo({
+      url: '../deleteSubject/deleteSubject',
+    })
+  },
+  navigateToAddUnit: function (event) {
+    wx.navigateTo({
+      url: '../addUnit/addUnit',
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  navigateToDeleteUnit: function (event) {
+    wx.navigateTo({
+      url: '../deleteUnit/deleteUnit',
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  navigateToAddTopic: function (event) {
+    wx.navigateTo({
+      url: '../addTopic/addTopic',
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  navigateToDeleteTopic: function (event) {
+    wx.navigateTo({
+      url: '../deleteTopic/deleteTopic',
+    })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

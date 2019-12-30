@@ -1,2 +1,28 @@
-<!--pages/student/student.wxml-->
-<text>pages/student/student.wxml</text>
+<van-collapse value="{{ activeNames }}" bind:change="onChange">
+  <van-collapse-item title="科目一" name="1">
+    <van-collapse value="{{ activeNames1 }}" bind:change="onChange1">
+      <van-collapse-item title="单元一" name="1">
+        <view class="list-compact">
+          <view class="list-item-compact">
+            <text> 知识点一 </text> 
+            <van-rate value="{{ rate1 }}" bind:change="onChangeRate1" />
+          </view>
+          <view class="list-item-compact">
+            <text> 知识点二</text> 
+            <van-rate value="{{ rate2 }}" bind:change="onChangeRate2" />
+          </view>
+          <view class="list-item-compact">
+            <text> 知识点三 </text> 
+            <van-rate value="{{ rate3 }}" bind:change="onChangeRate3" />
+          </view>
+        </view>        
+      </van-collapse-item>
+      <van-collapse-item title="单元二" name="2"></van-collapse-item>
+      <van-collapse-item title="单元三" name="3"></van-collapse-item>
+    </van-collapse>
+  </van-collapse-item>
+  <van-collapse-item title="科目二" name="2">
+  </van-collapse-item>
+  <van-collapse-item title="科目三" name="3" >
+  </van-collapse-item>
+</van-collapse>
