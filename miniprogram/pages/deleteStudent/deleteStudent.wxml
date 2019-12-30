@@ -1,2 +1,21 @@
-<!--pages/deleteStudent/deleteStudent.wxml-->
-<text>pages/deleteStudent/deleteStudent.wxml</text>
+<van-cell-group>
+  <van-field
+    label="用户名"
+    placeholder="请输入用户名"
+    error-message="{{userNotExist ? '此学生不存在' : ''}}"
+    bind:input="changeUsername"
+  />
+</van-cell-group>
+<view class="list-item">
+  <van-button 
+    color="#C3272B"
+    size="normal" 
+    bind:click="tryDeleteStudent">
+    删除学生
+  </van-button>
+</view>
+<toast 
+  hidden="{{toastHidden}}"
+  duration="1500"
+  bindchange="hideToast"
+>删除学生成功</toast>

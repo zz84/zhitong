@@ -22,7 +22,7 @@
 </van-cell-group>
 <view class="list-item">
   <van-button 
-    type="primary"
+    color="#0C8918"
     size="normal" 
     bind:click="tryAddStudent">
     添加学生

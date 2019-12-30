@@ -9,7 +9,7 @@
     <van-button color="#725182" size="large" bind:click="navigateToChangeTeacher">更改老师</van-button>
   </view>
   <view class="list-item">
-    <van-button color="#0C8918" size="large" bind:click="navigateToChangeTeacher">更改课程</van-button>
+    <van-button color="#0C8918" size="large" bind:click="navigateToChangeSubject">更改课程</van-button>
   </view>
 </view>
 

@@ -1,2 +1,8 @@
-<!--pages/changeTeacher/changeTeacher.wxml-->
-<text>pages/changeTeacher/changeTeacher.wxml</text>
+<view class="list">
+  <view class="list-item-large">
+    <van-button color="#2E8B57" size="large" bind:click="navigateToAddTeacher">添加老师</van-button>
+  </view>
+  <view class="list-item-large">
+    <van-button color="#C3272B" size="large" bind:click="navigateToDeleteTeacher">删除老师</van-button>
+  </view>
+</view>

@@ -1,1 +1,1 @@
-/* pages/deleteStudent/deleteStudent.wxss */
+@import "../../style/style.wxss"

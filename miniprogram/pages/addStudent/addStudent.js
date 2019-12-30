@@ -71,14 +71,11 @@ Page({
           isStudent: true
         }
       }).then(res => {
-        console.log(res)
         if (res.result.success) {
           this.setData({
             successToastHidden: false
           })
-          wx.navigateTo({
-            url: '../teacher/teacher',
-          })
+          return
         } else {
           wx.showToast({
             title: '添加学生失败',

@@ -5,7 +5,6 @@ cloud.init()
 const db = cloud.database()
 const userCollection = db.collection('user')
 
-// 云函数入口函数
 /** @param:
  *      - isStudent: boolean
  *      - username: string
@@ -14,7 +13,6 @@ const userCollection = db.collection('user')
  *      - { success: true }, if user is added successfully to database
  *      - { success: false }, if there is an exsiting user with same name
  */
-
 exports.main = async (event, context) => {
   try {
     return await userCollection.add({

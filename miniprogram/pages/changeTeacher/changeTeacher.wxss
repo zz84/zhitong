@@ -1,1 +1,1 @@
-/* pages/changeTeacher/changeTeacher.wxss */
+@import "../../style/style.wxss"

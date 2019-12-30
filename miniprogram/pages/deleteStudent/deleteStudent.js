@@ -1,66 +1,64 @@
-// pages/deleteStudent/deleteStudent.js
+var username = null 
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    toastHidden: true,
+    userNotExist: false
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  changeUsername: function (event) {
+    username = event.detail
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  hideToast: function (event) {
+    this.setData({
+      toastHidden: true
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  tryDeleteStudent: function (event) {
+    wx.cloud.callFunction({
+      name: "findUser",
+      data: {
+        username: username
+      }
+    }).then(res => {
+      if (res.result.userNotExist || !res.result.isStudent) {
+        this.setData({
+          userNotExist: true
+        })
+        return
+      }
+      this.setData({
+        userNotExist: false
+      })
+      wx.cloud.callFunction({
+        name: "deleteUser",
+        data: {
+          username: username,
+          isStudent: true
+        }
+      }).then(res => {
+        if (res.result.success) {
+          console.log("[数据库] [user] [删除] 用户名: ", username, ", isStudent: true")
+          this.setData({
+            toastHidden: false
+          })
+          return
+        } else {
+          wx.showToast({
+            title: '删除学生失败',
+            icon: 'none',
+            image: '../../images/sad.png',
+            duration: 1500,
+            mask: false
+          })
+        }
+      })
+    })
   }
 })

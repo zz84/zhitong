@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/addStudent/addStudent",
+    
     "pages/login/login",
     "pages/changePassword/changePassword",
     "pages/teacher/teacher",
@@ -8,18 +8,19 @@
     "pages/chooseStudent/chooseStudent",
     "pages/rating/rating",
     "pages/changeStudent/changeStudent",
-    
+    "pages/addStudent/addStudent",
     "pages/deleteStudent/deleteStudent",
     "pages/addTeacher/addTeacher",
     "pages/deleteTeacher/deleteTeacher",
-    "pages/changeTeacher/changeTeacher"
+    "pages/changeTeacher/changeTeacher",
+    "pages/changeSubject/changeSubject"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#ADD8EA",
+    "navigationBarBackgroundColor": "#177CB0",
     "navigationBarTitleText": "致同",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"
