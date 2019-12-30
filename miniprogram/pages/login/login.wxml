@@ -1,13 +1,11 @@
 <van-cell-group>
   <van-field
-    value="{{ username }}"
     label="用户名"
     placeholder="请输入用户名"
     error-message="{{userNotExist ? '用户名不存在' : ''}}"
     bind:input="changeUsername"
   />
   <van-field
-    value="{{ password }}"
     label="密码"
     placeholder="请输入密码"
     error-message="{{passwordCorrect ? '' : '密码错误'}}"

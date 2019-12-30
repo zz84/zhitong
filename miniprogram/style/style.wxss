@@ -17,3 +17,24 @@
 .text-button-hover {
   color: black;
 }
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 100rpx;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 40rpx 0rpx;
+}
+
+.list-item-large {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 40rpx 0rpx 250rpx 0rpx;
+}

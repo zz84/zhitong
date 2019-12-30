@@ -1,5 +1,7 @@
 const db = wx.cloud.database()
 const userCollection = db.collection('user')
+var username = null
+var password = null 
 
 Page({
 
@@ -8,9 +10,7 @@ Page({
    */
   data: {
     userNotExist: false,
-    passwordCorrect: true,
-    username: "",
-    password: ""
+    passwordCorrect: true
   },
 
   navigateToChangePassword: function (event) {
@@ -35,8 +35,8 @@ Page({
     wx.cloud.callFunction({
       name: "findUser",
       data: {
-        username: this.data.username,
-        password: this.data.password
+        username: username,
+        password: password
       }
     }).then(res => {
       console.log("[数据库] [查询] 结果:", res.result)
@@ -67,14 +67,10 @@ Page({
   },
 
   changeUsername: function (event) {
-    this.setData({
-      username: event.detail
-    })
+    username = event.detail
   },
 
   changePassword: function (event) {
-    this.setData({
-      password: event.detail
-    })
+    password = event.detail
   }
 })

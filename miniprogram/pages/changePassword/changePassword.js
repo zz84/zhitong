@@ -1,45 +1,38 @@
 // pages/changePassword/changePassword.js
+var username = null
+var oldPassword = null
+var newPassword1 = null
+var newPassword2 = null
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    username: "",
-    oldPassword: "",
-    newPassword1: "",
-    newPassword2: "",
     userNotExist: false,
     passwordCorrect: true,
     passwordNotMatch: false
   },
 
   changeUsername: function (event) {
-    this.setData({
-      username: event.detail
-    })
+    username = event.detail
   },
 
   changeOldPassword: function (event) {
-    this.setData({
-      oldPassword: event.detail
-    })
+    oldPassword = event.detail
   },
 
   changeNewPassword1: function (event) {
-    this.setData({
-      newPassword1: event.detail
-    })
+    newPassword2 = event.detail
   },
 
   changeNewPassword2: function (event) {
-    this.setData({
-      newPassword2: event.detail
-    })
+    newPassword2 = event.detail
   },
 
   tryChangePassword: function (event) {
-    if (this.data.newPassword1 != this.data.newPassword2) {
+    if (newPassword1 != newPassword2) {
       this.setData({
         passwordNotMatch: true
       })
@@ -51,8 +44,8 @@ Page({
     wx.cloud.callFunction({
       name: "findUser",
       data: {
-        username: this.data.username,
-        password: this.data.oldPassword
+        username: username,
+        password: oldPassword
       }
     }).then(res => {
       console.log("[数据库] [user] [查询] 结果:", res.result)
@@ -77,8 +70,8 @@ Page({
       wx.cloud.callFunction({
         name: "changePassword",
         data: {
-          username: this.data.username,
-          newPassword: this.data.newPassword1
+          username: username,
+          newPassword: newPassword1
         }
       }).then(res => {
         console.log("[数据库] [user] [更改] 结果:", res.result)

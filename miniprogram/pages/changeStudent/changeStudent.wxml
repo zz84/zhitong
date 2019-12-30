@@ -1,0 +1,8 @@
+<view class="list">
+  <view class="list-item-large">
+    <van-button color="#C3272B" size="large" bind:click="navigateToAddStudent">添加学生</van-button>
+  </view>
+  <view class="list-item-large">
+    <van-button color="#2E8B57" size="large" bind:click="navigateToDeleteStudent">删除学生</van-button>
+  </view>
+</view>

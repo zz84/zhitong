@@ -1,1 +1,15 @@
-<van-button type="primary" bind:click="addStudent">添加学生</van-button>
+<view class="list">
+  <view class="list-item-large">
+    <van-button color="#C3272B" size="large" bind:click="navigateToChooseStudent">评分</van-button>
+  </view>
+  <view class="list-item">
+    <van-button color="#177CB0" size="large" bind:click="navigateToChangeStudent">更改学生</van-button>
+  </view>
+  <view class="list-item">
+    <van-button color="#725182" size="large" bind:click="navigateToChangeTeacher">更改老师</van-button>
+  </view>
+  <view class="list-item">
+    <van-button color="#0C8918" size="large" bind:click="navigateToChangeTeacher">更改课程</van-button>
+  </view>
+</view>
+
