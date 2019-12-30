@@ -1,2 +1,36 @@
-<!--pages/addStudent/addStudent.wxml-->
-<text>pages/addStudent/addStudent.wxml</text>
+<van-cell-group>
+  <van-field
+    label="用户名"
+    placeholder="请输入用户名"
+    error-message="{{userExist ? '用户名已存在，请重新选择用户名' : ''}}"
+    bind:input="changeUsername"
+  />
+  <van-field
+    label="初始密码"
+    placeholder="请输入初始密码"
+    error-message="{{ passwordFormatCorrect ? '' : '密码长度请大于6' }}"
+    password="{{ true }}"
+    bind:input="changePassword1"
+  />
+    <van-field
+    label="确认初始密码"
+    placeholder="请确认初始密码"
+    error-message="{{ passwordNotMatch ? '两次输入密码不符' : '' }}"
+    password="{{ true }}"
+    bind:input="changePassword2"
+  />
+</van-cell-group>
+<view class="list-item">
+  <van-button 
+    type="primary"
+    size="normal" 
+    bind:click="tryAddStudent">
+    添加学生
+  </van-button>
+</view>
+<toast 
+  hidden="{{successToastHidden}}"
+  duration="1500"
+  bindchange="hideSuccessToast"
+>添加学生成功
+</toast>

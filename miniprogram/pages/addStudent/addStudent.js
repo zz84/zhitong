@@ -1,66 +1,94 @@
 // pages/addStudent/addStudent.js
+var username = null
+var newPassword1 = null
+var newPassword2 = null
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    passwordNotMatch: false,
+    passwordFormatCorrect: true,
+    userExist: false,
+    successToastHidden: true
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  changeUsername: function (event) {
+    username = event.detail
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  changePassword1: function (event) {
+    newPassword1 = event.detail
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  changePassword2: function (event) {
+    newPassword2 = event.detail
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  hideSuccessToast: function (event) {
+    this.setData({
+      successToastHidden: true
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
+  tryAddStudent: function (event) {
+    if (!newPassword1 || newPassword1.length < 6) {
+      this.setData({ passwordFormatCorrect: false })
+      return
+    }
+    this.setData({ passwordFormatCorrect: true })
 
-  },
+    if (newPassword1 != newPassword2) {
+      this.setData({ passwordNotMatch: true })
+      return
+    }
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
+    this.setData({ passwordNotMatch: false })
 
-  },
+    wx.cloud.callFunction({
+      name: "findUser",
+      data: {
+        username: username,
+        password: newPassword1
+      }
+    }).then(res => {
+      console.log("[数据库] [user] [查询] 结果:", res.result)
+      if (!res.result.userNotExist) {
+        this.setData({ userExist: true })
+        return
+      } 
+      this.setData({ userExist: false })
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
+      console.log("[数据库] [user] [添加] username:", username, ", password: ", newPassword1)
 
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+      wx.cloud.callFunction({
+        name: "addUser",
+        data: {
+          username: username,
+          password: newPassword1,
+          isStudent: true
+        }
+      }).then(res => {
+        console.log(res)
+        if (res.result.success) {
+          this.setData({
+            successToastHidden: false
+          })
+          wx.navigateTo({
+            url: '../teacher/teacher',
+          })
+        } else {
+          wx.showToast({
+            title: '添加学生失败',
+            icon: 'none',
+            image: '../../images/sad.png',
+            duration: 1500,
+            mask: false
+          })
+        }
+      })
+    })
   }
 })

@@ -10,7 +10,8 @@ Page({
    */
   data: {
     userNotExist: false,
-    passwordCorrect: true
+    passwordCorrect: true,
+    toastHidden: true
   },
 
   navigateToChangePassword: function (event) {
@@ -55,9 +56,10 @@ Page({
  
       this.setData({
         userNotExist: false,
-        passwordCorrect: true
+        passwordCorrect: true,
+        toastHidden: false
       })
-
+      
       if (res.result.isStudent) {
         this.navigateToStudent()
       } else {
@@ -72,5 +74,11 @@ Page({
 
   changePassword: function (event) {
     password = event.detail
+  },
+
+  hideToast: function (event) {
+    this.setData({
+      toastHidden: true
+    })
   }
 })

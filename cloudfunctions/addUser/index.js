@@ -6,17 +6,29 @@ const db = cloud.database()
 const userCollection = db.collection('user')
 
 // 云函数入口函数
-exports.main = async (event, context) => {
-  return await userCollection.add({
-    data:{
-      name: "test",
-      password: "test",
-      isStudent: true
-    }
-  })
-}
+/** @param:
+ *      - isStudent: boolean
+ *      - username: string
+ *      - password: string
+ *  @return:
+ *      - { success: true }, if user is added successfully to database
+ *      - { success: false }, if there is an exsiting user with same name
+ */
 
-//调用时用 
-// wx.cloud.callFunction({
-//   name: "addUser"
-// }).then(res => { console.log(res) })
+exports.main = async (event, context) => {
+  try {
+    return await userCollection.add({
+      data: {
+        name: event.username,
+        password: event.password,
+        isStudent: event.isStudent
+      }
+    }).then( res => { 
+      return { success: true }
+    })
+  } catch (e) {
+    return { 
+      success: false
+    }
+  }
+}
