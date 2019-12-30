@@ -1,2 +1,2 @@
-# zhitong
-zhitong rating
+# 致同教学评分微信小程序
+
