@@ -1,1 +1,2 @@
 /* pages/addStudent/addStudent.wxss */
+@import "../../style/style.wxss"

@@ -9,7 +9,6 @@
     label="密码"
     placeholder="请输入密码"
     error-message="{{passwordCorrect ? '' : '密码错误'}}"
-    border="{{ false }}"
     error="{{false}}"
     password="{{true}}"
     bind:input="changePassword"
@@ -32,3 +31,9 @@
     bindtap="tryLogIn"> 登录 
   </button>
 </view>
+
+<toast 
+  hidden="{{toastHidden}}"
+  duration="1500"
+  bindchange="hideToast"
+>登录成功</toast>

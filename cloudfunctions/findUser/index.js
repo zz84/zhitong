@@ -9,19 +9,20 @@ const userCollection = db.collection('user')
 exports.main = async (event, context) => {
   return await userCollection.get().then(res => {
     const person = res.data.find(person => person.name == event.username)
-    
+    var result = {
+      userNotExist: true,
+      passwordIncorrect: true,
+      isStudent: true
+    }
+
     if (!person) {
-      return { userNotExist: true }
+      return result
     }
 
-    if (person.password != event.password) {
-      return { passwordIncorrect: true }
-    }
-
-    if (person.isStudent) {
-      return { isStudent: true }
-    }
+    result.userNotExist = false
+    result.passwordIncorrect = person.password != event.password
+    result.isStudent = person.isStudent
     
-    return { isStudent: false }
+    return result
   })
 }

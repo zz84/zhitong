@@ -1,13 +1,14 @@
 {
   "pages": [
-    "pages/changeStudent/changeStudent",
+    "pages/addStudent/addStudent",
     "pages/login/login",
     "pages/changePassword/changePassword",
     "pages/teacher/teacher",
     "pages/student/student",
     "pages/chooseStudent/chooseStudent",
     "pages/rating/rating",
-    "pages/addStudent/addStudent",
+    "pages/changeStudent/changeStudent",
+    
     "pages/deleteStudent/deleteStudent",
     "pages/addTeacher/addTeacher",
     "pages/deleteTeacher/deleteTeacher",

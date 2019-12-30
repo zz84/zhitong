@@ -12,7 +12,9 @@ Page({
   data: {
     userNotExist: false,
     passwordCorrect: true,
-    passwordNotMatch: false
+    passwordNotMatch: false,
+    passwordFormatCorrect:true,
+    toastHidden: true
   },
 
   changeUsername: function (event) {
@@ -24,23 +26,33 @@ Page({
   },
 
   changeNewPassword1: function (event) {
-    newPassword2 = event.detail
+    newPassword1 = event.detail
   },
 
   changeNewPassword2: function (event) {
     newPassword2 = event.detail
   },
 
+  hideToast: function (event) {
+    this.setData({
+      toastHidden: true
+    })
+  },
+
   tryChangePassword: function (event) {
-    if (newPassword1 != newPassword2) {
-      this.setData({
-        passwordNotMatch: true
-      })
+    if (!newPassword1 || newPassword1.length < 6) {
+      this.setData({ passwordFormatCorrect: false })
       return
     }
-    this.setData({
-      passwordNotMatch: false
-    })
+    this.setData({ passwordFormatCorrect: true })
+
+    if (newPassword1 != newPassword2) {
+      this.setData({ passwordNotMatch: true })
+      return
+    }
+
+    this.setData({ passwordNotMatch: false })
+
     wx.cloud.callFunction({
       name: "findUser",
       data: {
@@ -75,6 +87,9 @@ Page({
         }
       }).then(res => {
         console.log("[数据库] [user] [更改] 结果:", res.result)
+        this.setData({
+          toastHidden: false
+        })
         wx.navigateTo({
           url: '../login/login',
         })
