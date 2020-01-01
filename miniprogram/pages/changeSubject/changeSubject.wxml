@@ -1,28 +1,40 @@
-<view class="list">
-  <view class="button-wrapper">
-    <view class="list-item">
-      <van-button color="#2E8B57" size="large" bind:click="navigateToAddSubject">添加科目</van-button>
-    </view>
-    <view class="list-item">
-      <van-button color="#C3272B" size="large" bind:click="navigateToDeleteSubject">删除科目</van-button>
-    </view>
+<view class="add-subject-block">
+  <van-field
+    placeholder="请添加科目名"
+    border="{{ false }}"
+    custom-style="font-size: 28rpx;"
+    bind:change="onChange">
+  </van-field>
+  <view class="icon-wrapper">
+    <van-icon 
+      name="add" 
+      color="rgba(113,191,71)" 
+      size="50rpx"/>
   </view>
-  
-  <view class="button-wrapper">
-    <view class="list-item">
-      <van-button color="#2E8B57" size="large" bind:click="navigateToAddUnit">添加单元</van-button>
-    </view>
-    <view class="list-item">
-      <van-button color="#C3272B" size="large" bind:click="navigateToDeleteUnit">删除单元</van-button>
-    </view>
-  </view>
-
-  <view class="button-wrapper">
-    <view class="list-item">
-      <van-button color="#2E8B57" size="large" bind:click="navigateToAddTopic">添加知识点</van-button>
-    </view>
-    <view class="list-item">
-      <van-button color="#C3272B" size="large" bind:click="navigateToDeleteTopic">删除知识点</van-button>
+</view>
+<view 
+  class="list-plain" 
+  wx:for="{{subjectArray}}" 
+  wx:for-item="subject" 
+  wx:key="subject" 
+  id="subject">
+  <view class="add-subject-block"> 
+    <view style="font-size: 28rpx; margin-left: 26rpx;"> {{subject}} </view>
+    <view class="icon-block">
+      <view class="icon-wrapper">
+        <van-icon 
+          name="play-circle" 
+          color="rgba(64,137,242)" 
+          size="50rpx" 
+        />
+      </view>
+      <view class="icon-wrapper">
+        <van-icon 
+          name="clear" 
+          color="rgba(237,101,90)" 
+          size="50rpx" 
+        />
+      </view>
     </view>
   </view>
 </view>

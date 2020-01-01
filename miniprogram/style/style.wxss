@@ -59,3 +59,8 @@
   border-top: none;
   padding-top: 0rpx;
 }
+
+.list-plain {
+  display: flex;
+  flex-direction: column;
+}

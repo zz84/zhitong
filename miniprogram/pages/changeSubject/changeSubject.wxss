@@ -1,1 +1,20 @@
-@import "../../style/style.wxss"
+@import "../../style/style.wxss";
+
+.add-subject-block {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+  align-items: center;
+  margin: 0rpx 20rpx;
+  height: 80rpx;
+}
+
+.icon-wrapper {
+  margin: 6rpx 5rpx 0rpx 5rpx;
+}
+
+.icon-block {
+  display: flex;
+  flex-direction: row;
+}

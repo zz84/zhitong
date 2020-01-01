@@ -1,42 +1,43 @@
-
 Page({
 
   data: {
-
+    subjectArray: ["九年级上", "欧拉班"]
   },
 
-  navigateToAddSubject: function (event) {
-    wx.navigateTo({
-      url: '../addSubject/addSubject',
-    })
+  onChange(event) {
+    this.setData({
+      activeNames: event.detail
+    });
   },
 
-  navigateToDeleteSubject: function (event) {
-    wx.navigateTo({
-      url: '../deleteSubject/deleteSubject',
-    })
-  },
-  navigateToAddUnit: function (event) {
-    wx.navigateTo({
-      url: '../addUnit/addUnit',
-    })
+  onChange1(event) {
+    this.setData({
+      activeNames1: event.detail
+    });
   },
 
-  navigateToDeleteUnit: function (event) {
-    wx.navigateTo({
-      url: '../deleteUnit/deleteUnit',
-    })
+  onChange2(event) {
+    this.setData({
+      activeNames2: event.detail
+    });
   },
 
-  navigateToAddTopic: function (event) {
-    wx.navigateTo({
-      url: '../addTopic/addTopic',
-    })
+  onChangeRate1(event) {
+    this.setData({
+      rate1: event.detail
+    });
   },
 
-  navigateToDeleteTopic: function (event) {
-    wx.navigateTo({
-      url: '../deleteTopic/deleteTopic',
-    })
+  onChangeRate2(event) {
+    this.setData({
+      rate2: event.detail
+    });
   },
+
+  onChangeRate3(event) {
+    this.setData({
+      rate3: event.detail
+    });
+  },
+
 })

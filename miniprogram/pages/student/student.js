@@ -1,4 +1,3 @@
-// pages/student/student.js
 Page({
 
   data: {
