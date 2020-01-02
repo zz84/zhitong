@@ -1,0 +1,53 @@
+<view class="title"> {{subject + " ~ " + unit}} </view>
+<view class="add-subject-block">
+  <view class="topic-block">
+    <van-field
+      value="{{addId}}"
+      placeholder="请添加知识点ID"
+      border="{{ false }}"
+      custom-style="font-size: 28rpx;"
+      bind:change="onChangeAddId">
+    </van-field>
+    <van-field
+      value="{{addTopic}}"
+      placeholder="请添加知识点名称"
+      border="{{ false }}"
+      custom-style="font-size: 28rpx;"
+      bind:change="onChangeAddTopic"
+      error-message="{{addSuccess ? '' : '知识点已存在'}}">
+    </van-field>
+  </view>
+  
+  <view class="icon-wrapper">
+    <van-icon 
+      name="add" 
+      color="rgba(113,191,71)" 
+      size="50rpx"
+      bind:click="onAddTopic"
+    />
+  </view>
+</view>
+<view 
+  class="list-plain" 
+  wx:for="{{topicArray}}" 
+  wx:for-item="topic" 
+  wx:key="topic" 
+  id="topic">
+  <view class="add-subject-block"> 
+    <view class="topic-block">
+      <view class="id-wrapper"><view class="text-normal"> {{topic[1]}} </view></view>
+      <view class="topic-wrapper"><view class="text-normal"> {{topic[0]}} </view></view>
+    </view>
+    <view class="icon-block">
+      <view class="icon-wrapper">
+        <van-icon 
+          data-currenttopic="{{topic}}"
+          name="clear" 
+          color="rgba(237,101,90)" 
+          size="50rpx"
+          bind:click="onDeleteTopic"
+        />
+      </view>
+    </view>
+  </view>
+</view>

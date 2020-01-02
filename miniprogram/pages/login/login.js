@@ -2,6 +2,7 @@ const db = wx.cloud.database()
 const userCollection = db.collection('user')
 var username = null
 var password = null 
+var app = getApp()
 
 Page({
 
@@ -59,6 +60,8 @@ Page({
         passwordCorrect: true,
         toastHidden: false
       })
+      
+      getApp().globalData.username = username 
       
       if (res.result.isStudent) {
         this.navigateToStudent()

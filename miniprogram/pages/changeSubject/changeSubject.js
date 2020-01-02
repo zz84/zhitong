@@ -1,3 +1,5 @@
+var app = getApp()
+
 Page({
 
   data: {
@@ -52,8 +54,10 @@ Page({
   },
 
   onNavigateToChangeTopic: function(event) {
-    // TODO: implement this
-    console.log(event.currentTarget.dataset.currentsubject)
+    app.globalData.subject = event.currentTarget.dataset.currentsubject
+    wx.navigateTo({
+      url: '../changeUnit/changeUnit',
+    })
   },
 
   removeElement: function(arr, ele) {

@@ -23,7 +23,7 @@
   wx:key="subject" 
   id="subject">
   <view class="add-subject-block"> 
-    <view style="font-size: 28rpx; margin-left: 26rpx;"> {{subject}} </view>
+    <view class="text-normal"> {{subject}} </view>
     <view class="icon-block">
       <view class="icon-wrapper">
         <van-icon 

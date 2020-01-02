@@ -1,0 +1,21 @@
+@import "../../style/style.wxss";
+
+.topic-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 100%;
+  overflow: auto;
+  text-overflow: ellipsis;
+}
+
+.id-wrapper {
+  align-items: center;
+  width: 150rpx;
+  display: flex;
+}
+
+.topic-wrapper {
+  align-items: center;
+  display: flex;
+}

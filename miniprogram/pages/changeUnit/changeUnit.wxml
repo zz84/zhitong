@@ -1,0 +1,49 @@
+<view class="title"> {{subject}} </view>
+<view class="add-subject-block">
+  <van-field
+    value="{{addUnit}}"
+    placeholder="请添加阶段名"
+    border="{{ false }}"
+    custom-style="font-size: 28rpx;"
+    bind:change="onChangeAddUnit"
+    error-message="{{addSuccess ? '' : '阶段名已存在'}}">
+  </van-field>
+  <view class="icon-wrapper">
+    <van-icon 
+      name="add" 
+      color="rgba(113,191,71)" 
+      size="50rpx"
+      bind:click="onAddUnit"
+    />
+  </view>
+</view>
+<view 
+  class="list-plain" 
+  wx:for="{{unitArray}}" 
+  wx:for-item="unit" 
+  wx:key="unit" 
+  id="unit">
+  <view class="add-subject-block"> 
+    <view class="text-normal"> {{unit}} </view>
+    <view class="icon-block">
+      <view class="icon-wrapper">
+        <van-icon 
+          data-currentunit="{{unit}}"
+          name="play-circle" 
+          color="rgba(64,137,242)" 
+          size="50rpx"
+          bind:click="onNavigateToChangeTopic"
+        />
+      </view>
+      <view class="icon-wrapper">
+        <van-icon 
+          data-currentunit="{{unit}}"
+          name="clear" 
+          color="rgba(237,101,90)" 
+          size="50rpx"
+          bind:click="onDeleteUnit"
+        />
+      </view>
+    </view>
+  </view>
+</view>

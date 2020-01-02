@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/changeSubject/changeSubject",
+    
     "pages/login/login",
     "pages/changePassword/changePassword",
     "pages/teacher/teacher",
@@ -12,7 +12,10 @@
     "pages/deleteStudent/deleteStudent",
     "pages/addTeacher/addTeacher",
     "pages/deleteTeacher/deleteTeacher",
-    "pages/changeTeacher/changeTeacher"
+    "pages/changeTeacher/changeTeacher",
+    "pages/changeUnit/changeUnit",
+    "pages/changeSubject/changeSubject",
+    "pages/changeTopic/changeTopic"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
