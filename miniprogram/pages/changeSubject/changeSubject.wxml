@@ -1,15 +1,19 @@
 <view class="add-subject-block">
   <van-field
+    value="{{addSubject}}"
     placeholder="请添加科目名"
     border="{{ false }}"
     custom-style="font-size: 28rpx;"
-    bind:change="onChange">
+    bind:change="onChangeAddSubject"
+    error-message="{{addSuccess ? '' : '科目名已存在'}}">
   </van-field>
   <view class="icon-wrapper">
     <van-icon 
       name="add" 
       color="rgba(113,191,71)" 
-      size="50rpx"/>
+      size="50rpx"
+      bind:click="onAddSubject"
+    />
   </view>
 </view>
 <view 
@@ -23,16 +27,20 @@
     <view class="icon-block">
       <view class="icon-wrapper">
         <van-icon 
+          data-currentsubject="{{subject}}"
           name="play-circle" 
           color="rgba(64,137,242)" 
-          size="50rpx" 
+          size="50rpx"
+          bind:click="onNavigateToChangeTopic"
         />
       </view>
       <view class="icon-wrapper">
         <van-icon 
+          data-currentsubject="{{subject}}"
           name="clear" 
           color="rgba(237,101,90)" 
-          size="50rpx" 
+          size="50rpx"
+          bind:click="onDeleteSubject"
         />
       </view>
     </view>
