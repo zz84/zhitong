@@ -1,2 +1,30 @@
-<!--pages/chooseStudent/chooseStudent.wxml-->
-<text>pages/chooseStudent/chooseStudent.wxml</text>
+<view class="list-plain">
+    <van-search
+    value="{{ value }}"
+    placeholder="请搜索学生姓名"
+    border="{{ true }}"
+    bind:change="onSearch"
+  />
+
+  <view 
+    class="list-plain" 
+    wx:for="{{ students }}" 
+    wx:for-item="student" 
+    wx:key="student" 
+    id="student">
+    <view class="add-subject-block"> 
+      <view class="text-normal"> {{student}} </view>
+      <view class="icon-block">
+        <view class="icon-wrapper">
+          <van-icon 
+            data-currentstudent="{{student}}"
+            name="play-circle" 
+            color="rgba(64,137,242)" 
+            size="50rpx"
+            bind:click="onNavigateToChooseSubject"
+          />
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

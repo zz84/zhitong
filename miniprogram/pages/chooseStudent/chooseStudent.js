@@ -1,66 +1,54 @@
-// pages/chooseStudent/chooseStudent.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    students: [],
+    allStudents: [],
+    selectedStudent: ""
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    wx.cloud.callFunction({
+      name: "loadStudent"
+    }).then(res => {
+      this.setData({
+        students: res.result.result,
+        allStudents: res.result.result,
+        selectedStudent: res.result.result.length > 0 ? res.result.result[0] : ""
+      })
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onSelectStudent: function (event) {
+    const { picker, value, index } = event.detail;
+    this.setData({
+      selectedStudent: value
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+  onSearch: function (event) {
+    const target = event.detail
+    if (target == "") {
+      this.setData({
+        students: this.data.allStudents
+      })
+      return
+    }
 
+    var students = []
+    this.data.allStudents.forEach(student => {
+      if (student.indexOf(target) != -1) {
+        students.push(student)
+      }
+    })
+    this.setData({
+      students: students
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onNavigateToChooseSubject: function (event) {
+    getApp().globalData.selectedStudent = event.currentTarget.dataset.currentstudent
+    wx.navigateTo({
+      url: '../chooseSubject/chooseSubject',
+    })
   }
 })

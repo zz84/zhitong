@@ -23,7 +23,6 @@ Page({
         unitName: this.data.unit
       }
     }).then(res => {
-      console.log(res)
       this.setData({
         topicArray: res.result.result
       })
@@ -52,7 +51,6 @@ Page({
         topicId: this.data.addId
       }
     }).then(res => {
-      console.log(res)
       if (!res.result.success) {
         this.setData({
           addSuccess: false

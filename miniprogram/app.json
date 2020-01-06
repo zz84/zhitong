@@ -1,11 +1,11 @@
 {
   "pages": [
-    
+    "pages/chooseStudent/chooseStudent",
     "pages/login/login",
     "pages/changePassword/changePassword",
     "pages/teacher/teacher",
     "pages/student/student",
-    "pages/chooseStudent/chooseStudent",
+    
     "pages/rating/rating",
     "pages/changeStudent/changeStudent",
     "pages/addStudent/addStudent",
@@ -15,7 +15,10 @@
     "pages/changeTeacher/changeTeacher",
     "pages/changeUnit/changeUnit",
     "pages/changeSubject/changeSubject",
-    "pages/changeTopic/changeTopic"
+    "pages/changeTopic/changeTopic",
+    "pages/chooseSubject/chooseSubject",
+    "pages/chooseUnit/chooseUnit"
+
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
